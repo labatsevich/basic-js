@@ -13,9 +13,14 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function deleteDigit(n) {
 
-    let arr = Array.from(String(n))
+    let str = String(n),
+        combination = []
 
-    return Math.max(...arr.map((el, i) => (arr.slice(0, i) + arr.slice(i + 1)).split(',').join('')))
+    for (let i = 0; i < str.length; i++) {
+        combination.push(str.replace(str[i], ''))
+    }
+
+    return Math.max(...combination)
 
 }
 
